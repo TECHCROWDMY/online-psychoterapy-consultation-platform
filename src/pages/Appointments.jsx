@@ -3,14 +3,15 @@ import {Navbar, Footer, AppointmentsList} from '../components'
 
 
 const Appointments = ({token}) => {
-  return (
-    <div>
-    <Navbar token={token} />
-    <AppointmentsList token={token}/>
-    <Footer />
-    
 
-</div>
+
+  
+  return (
+    <>
+      <Navbar token={token} />
+      <AppointmentsList />
+      <Footer />
+    </>
   )
 }
 

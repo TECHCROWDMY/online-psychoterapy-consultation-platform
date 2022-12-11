@@ -2,7 +2,7 @@ import { useState,useEffect } from 'react';
 import './App.css';
 import { VideoRoom } from './components/VideoRoom';
 import {Routes, Route} from 'react-router-dom';
-import {Login,SignUp, Homepage, Appointments} from './pages/index'
+import {Login,SignUp, Homepage, Appointments} from './pages/index';
  
 function App() {
   const [token,setToken] = useState(false)

@@ -41,25 +41,25 @@ const Navbar = ({token}) => {
                     </button>
                     
                     {/* THIS IS THE DROPDOWN MENU */}
-                    <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding   border-t-1"
+                    <ul className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding   border-t-1"
                         aria-labelledby="dropdownMenuButton1"
                     >
-                        <div class="py-3 px-4 text-sm text-gray-900 dark:text-white divide-gray-100">
+                        <div className="py-3 px-4 text-sm text-gray-900 dark:text-white divide-gray-100">
                             <div>{token.user.user_metadata.first_name}</div>
-                            <div class="font-medium truncate"><strong>{token.user.email}</strong></div>
+                            <div className="font-medium truncate"><strong>{token.user.email}</strong></div>
                         </div>
                         <li>
-                            <a href="#" class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                            <a href="#" className=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
                                 View Profile
                             </a>
                         </li>
                         <li>
-                            <a href="#" class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                            <a href="#" className=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
                                 Settings
                             </a>
                         </li>
                         <li>
-                            <Link onClick={handleLogout} class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                            <Link onClick={handleLogout} className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
                                 Log out
                             </Link>
                         </li>

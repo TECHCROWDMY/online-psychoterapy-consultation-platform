@@ -15,7 +15,7 @@ const HeroSection = ({token}) => {
             
             <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 ss:grid-cols-1 gap-8   text-black'>
                 
-                <Link  to={`/blog/`}>
+                <Link  to={`/appointments`}>
                     <div  className='bg-white rounded-xl overflow-hidden border-2 hover:drop-shadow-md'>
                         <img className='h-56 w-full object-cover' src={`https://hips.hearstapps.com/hmg-prod/images/types-of-doctors-1600114658.jpg?crop=0.670xw:1.00xh;0.0553xw,0&resize=640:*`} />
                         <div className='p-8'>

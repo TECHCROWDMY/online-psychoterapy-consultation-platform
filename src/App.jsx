@@ -2,8 +2,8 @@ import { useState,useEffect } from 'react';
 import './App.css';
 import { VideoRoom } from './components/VideoRoom';
 import {Routes, Route} from 'react-router-dom';
-import {Login,SignUp, Homepage} from './pages/index'
-
+import {Login,SignUp, Homepage, AppointmentsList} from './pages/index'
+ 
 function App() {
   const [token,setToken] = useState(false)
   
@@ -29,6 +29,9 @@ function App() {
     return (
       <Routes>
         <Route path='/' element={<Homepage token={token} />} />
+        <Route path='/appointments' element={<AppointmentsList token={token} />} />
+
+
       </Routes>
     );
   }else{

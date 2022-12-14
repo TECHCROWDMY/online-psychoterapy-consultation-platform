@@ -17,7 +17,9 @@ const Navbar = ({token}) => {
         <div className='flex justify-between items-center w-full h-full md:max-w-[1240px] m-auto'>
 
                 <div className='flex items-center'>
-                    <img src={logo} alt="logo" className='sm:ml-10 ss:ml-10 md:ml-3 opacity-[55%] w-full h-[25px]' />
+                    <Link to={'/'}>
+                        <img src={logo} alt="logo" className='sm:ml-10 ss:ml-10 md:ml-3 opacity-[55%] w-full h-[25px]' />
+                    </Link>
                 </div>
           
 

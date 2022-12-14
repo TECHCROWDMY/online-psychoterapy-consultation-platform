@@ -9,7 +9,7 @@ const Appointments = ({token}) => {
   return (
     <>
       <Navbar token={token} />
-      <AppointmentsList />
+      <AppointmentsList token={token}/>
       <Footer />
     </>
   )

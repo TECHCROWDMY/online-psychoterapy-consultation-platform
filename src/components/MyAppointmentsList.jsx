@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 import { BookingConfirmation } from '../modals';
  
-function AppointmentsList({token}) {
+function MyAppointmentsList({token}) {
     const [allAppointments,setAllAppointments] = useState([])
     const [isBookingClicked, setBookingClicked] =useState(false)
     const [isConfirmClicked, setConfirmClicked] =useState(false)
@@ -22,7 +22,7 @@ function AppointmentsList({token}) {
         fetchData();
       }, []);
       
-      let appointments= allAppointments.filter(x=>!x.bookedBy)
+      let appointments= allAppointments.filter(x=> x.bookedBy)
 
   
         isConfirmClicked?handleConfirmation():""
@@ -89,4 +89,4 @@ function AppointmentsList({token}) {
   )
 }
 
-export default AppointmentsList
+export default MyAppointmentsList

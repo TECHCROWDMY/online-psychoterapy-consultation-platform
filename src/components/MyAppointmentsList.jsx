@@ -9,8 +9,6 @@ function MyAppointmentsList({token}) {
     const [isConfirmClicked, setConfirmClicked] =useState(false)
     const [appoinmentId, setAppointmentId]=useState(null)
 
-
-
     useEffect(() => {
         async function fetchData() {
 
@@ -22,12 +20,12 @@ function MyAppointmentsList({token}) {
         fetchData();
       }, []);
       
-      let appointments= allAppointments.filter(x=> x.bookedBy)
+      let appointments= allAppointments.filter(x=> x.bookedBy==token.user.id)
 
   
         isConfirmClicked?handleConfirmation():""
 
-        function handleBookingClick(id){
+        function handleJoin(id){
             setBookingClicked(!isBookingClicked)
             setAppointmentId(id)
         } 
@@ -48,7 +46,7 @@ function MyAppointmentsList({token}) {
 
   return (
     
-    <div className=' bg-[#f5f5f5]'>
+    <div className='bg-[#f5f5f5]'>
         <div className='w-full h-full min-h-[800px] md:max-w-[900px] m-auto py-[50px] '>
             <h3 className='py-8'>Available appointments</h3>
             <div className="w-full grid grid-cols-1 gap-4 lg:gap-8">
@@ -60,8 +58,11 @@ function MyAppointmentsList({token}) {
                             <div>{appoinment.name}</div>
                             <div>{appoinment.name}</div>
 
-                            {/* <button onClick={handleBookingClick(appoinment.id)}  className="px-10 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:cursor-pointer hover:text-white">Book</button> */}
-                            <button  onClick={()=>handleBookingClick(appoinment.id)} className="px-10 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:cursor-pointer hover:text-white">Book</button>
+                             {/* <button  onClick={()=>handleJoin(appoinment.id)} className="px-10 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:cursor-pointer hover:text-white">Join Meeting</button> */}
+                             <Link to='/video-call'>
+                             <button   className="px-10 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:cursor-pointer hover:text-white">Join Meeting</button>
+                             </Link>
+
 
                         </div>
 

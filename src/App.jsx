@@ -2,7 +2,7 @@ import { useState,useEffect } from 'react';
 import './App.css';
 import { VideoRoom } from './components/VideoRoom';
 import {Routes, Route} from 'react-router-dom';
-import {Login,SignUp, Homepage, Appointments, MyAppointments} from './pages/index';
+import {Login,SignUp, Homepage, Appointments, MyAppointments, VideocallPage} from './pages/index';
  
 function App() {
   const [token,setToken] = useState(false)
@@ -10,10 +10,6 @@ function App() {
   if(token){
     sessionStorage.setItem('token', JSON.stringify(token));
   }
-
-  // if(sessionStorage.getItem('token')){
-  //   setToken(sessionStorage.getItem('token'))
-  // }
 
   useEffect(() => {
     
@@ -31,9 +27,7 @@ function App() {
         <Route path='/' element={<Homepage token={token} />} />
         <Route path='/appointments' element={<Appointments token={token} />} />
         <Route path='/my-appointments' element={<MyAppointments token={token} />} />
-
-
-
+        <Route path='/video-call' element={<VideocallPage token={token} />} />
       </Routes>
     );
   }else{

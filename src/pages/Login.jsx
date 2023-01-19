@@ -28,8 +28,7 @@ const Login = ({setToken}) => {
           const { data, error } = await supabase.auth.signInWithPassword({email: formData.email,password: formData.password})
           console.log(data)
           if (error) throw error
-          // alert('Check your email for the verification link!')
-          setToken(data)
+           setToken(data)
           navigate("/");
 
         } catch (error) {
@@ -39,10 +38,7 @@ const Login = ({setToken}) => {
         }
       }
       
-
-    //   async function signInWithEmail() {
-    //     const { data, error } = await 
-    //   }
+ 
       
   return (
 

@@ -3,9 +3,6 @@ import {Navbar, Footer, AppointmentsList} from '../components'
 
 
 const Appointments = ({token}) => {
-
-
-  
   return (
     <>
       <Navbar token={token} />

@@ -33,11 +33,10 @@ function AppointmentsList({token}) {
         } 
      
         async function handleConfirmation(){
-            alert('Confirm is clicked')
 
             const { data, error } = await  supabase
             .from('appointments')
-            .update({ bookedBy: token.user.id })
+            .update({ bookedBy: token.user.id, status:`Booked` })
             .eq("id", appoinmentId)
         }
     
@@ -57,8 +56,8 @@ function AppointmentsList({token}) {
                     <div key={appoinment.id} className="py-4 bg-[#fff] rounded-md items-center  shadow-md hover:shadow-lg max-h-[75px]">
                     
                         <div className='flex justify-between px-5  items-center '>
-                            <div>{appoinment.name}</div>
-                            <div>{appoinment.name}</div>
+                            <div>{appoinment.day}</div>
+                            <div>{appoinment.slot}</div>
 
                             {/* <button onClick={handleBookingClick(appoinment.id)}  className="px-10 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:cursor-pointer hover:text-white">Book</button> */}
                             <button  onClick={()=>handleBookingClick(appoinment.id)} className="px-10 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:cursor-pointer hover:text-white">Book</button>

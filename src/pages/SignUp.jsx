@@ -5,7 +5,8 @@ import { supabase } from '../supabaseClient'
 const SignUp = () => {
     const [loading, setLoading] = useState(false)
     const [formData,setFormData]=useState({fullname:'',email:'',password:''});
-         
+    let uniqueId=Math.random().toString(16).slice(2)
+          
     function handleChange(event){
         setFormData(prevFormData=>{
           return{
@@ -16,18 +17,24 @@ const SignUp = () => {
       }
 
       const handleSubmit = async (e) => {
+        console.log(uniqueId)
         e.preventDefault()
         try {
           setLoading(true)
           const { data, error } = await supabase.auth.signUp({
             email: formData.email,
             password: formData.password,
+ 
             options: {
               data: {
-                first_name: formData.fullname,
+                full_name: formData.fullname,
+                avatar_url:uniqueId,
+                website:formData.fullname,
+
               }
             }
         })
+          
           console.log(data)
           if (error) throw error
           alert('Check your email for the verification link!')
@@ -43,6 +50,19 @@ const SignUp = () => {
     //   async function signInWithEmail() {
     //     const { data, error } = await 
     //   }
+
+    async function updateUser(){
+ 
+      const { data, error } = await  supabase
+      .from('profiles')
+      .update({ 
+         email:formData.email,
+         user_type:'patient',
+
+
+      })
+      .eq("avatar_url", uniqueId)
+  }
       
   return (
 

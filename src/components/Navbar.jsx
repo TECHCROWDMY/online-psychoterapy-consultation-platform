@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const Navbar = ({token}) => {
     const [toggle,setToggle]=useState(false);
     const handleClick = ()=>setToggle(!toggle)
+    
     function handleLogout(){
         sessionStorage.removeItem('token')
         navigate('/')
@@ -22,19 +23,6 @@ const Navbar = ({token}) => {
                     </Link>
                 </div>
           
-
-                {/* <div className='flex items-center'>
-                    <ul className='hidden md:flex'>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Support</li>
-                        <li>Platform</li>
-                        <li>Pricing</li>
-                    </ul>
-                </div> */}
-
-
-
                 <div className='hidden md:flex sm:mr-10 md:mr-10'>
                     
 
@@ -47,7 +35,7 @@ const Navbar = ({token}) => {
                         aria-labelledby="dropdownMenuButton1"
                     >
                         <div className="py-3 px-4 text-sm text-gray-900 dark:text-white divide-gray-100">
-                            <div>{token.user.user_metadata.first_name}</div>
+                            <div>{token.user.user_metadata.full_name}</div>
                             <div className="font-medium truncate"><strong>{token.user.email}</strong></div>
                         </div>
                         <li>
@@ -68,29 +56,6 @@ const Navbar = ({token}) => {
        
                     </ul>
                     
-                    {/* <button className='px-8 py-3'>Sign Up</button> */}
-                    
-                    {/* <div  aria-labelledby="dropdownMenuButton1" class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none">
-                        <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
-                        <div>Bonnie Green</div>
-                        <div class="font-medium truncate">name@flowbite.com</div>
-                        </div>
-                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                        </li>
-                        </ul>
-                        <div class="py-1">
-                        <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                        </div>
-                    </div> */}
-
                 </div>
 
                 <div className='md:hidden' onClick={handleClick}>
